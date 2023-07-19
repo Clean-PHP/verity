@@ -31,6 +31,7 @@ class VerityRule
     const IPV4 = "^\d+\.\d+\.\d+\.\d+$";
     const FLOAT_AND_INT = "^(0\.\d+|[1-9]\d*(\.\d+)?)$";
 
+
     public ?string $rule = "";
     public string $msg = "校验失败";
     public bool $allow_empty = true;
