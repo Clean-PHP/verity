@@ -40,7 +40,7 @@ class VerityRule
      * @param string $msg 错误信息
      * @param bool $allow_empty 是否为空不校验
      */
-    public function __construct(?string $rule, string $msg = "校验失败", bool $allow_empty = true)
+    public function __construct(?string $rule, string $msg = "校验失败", bool $allow_empty = false)
     {
         $this->allow_empty = $allow_empty;
         $this->rule = $rule;

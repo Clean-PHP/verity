@@ -18,6 +18,13 @@ use cleanphp\base\ArgObject;
 
 abstract class VerityObject extends ArgObject
 {
+    private mixed $check ;
+
+    public function __construct(?array $item = [],$check = true)
+    {
+        $this->check = $check;
+        parent::__construct($item);
+    }
 
     /**
      * 获取匹配规则
@@ -26,4 +33,13 @@ abstract class VerityObject extends ArgObject
     abstract function getRules(): array;
 
     use VerityTrait;
+
+    /**
+     * @throws VerityException
+     */
+    public function onParseType(string $key, mixed &$val, mixed $demo): bool
+    {
+        $this->check && $this->onParseTypeCheck( $key,  $val,  $demo);
+        return parent::onParseType($key, $val, $demo);
+    }
 }
